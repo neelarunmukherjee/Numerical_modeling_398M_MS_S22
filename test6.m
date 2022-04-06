@@ -1,3 +1,5 @@
+clear; 
+clc;
 %% Simulation paramters
 Param.HD = 25;                 % Dimensionless ice shell thickness    [-]
 Param.LD  = 25;                % Dimensionless width of the domain    [-]
@@ -7,7 +9,7 @@ Param.phi_shell   = 2e-1;      % Porosity of near surface melt
 Param.m = 1;                   % compaction viscosity exponent [-]
 Param.n = 2;                   % compaction viscosity exponent [-]
 Param.tDmax = 4;               % Dimensionless simulation time [-]
-Param.theta = .5;               % Crank-Nicholson (implicit)
+Param.theta = .5;              % Crank-Nicholson (implicit)
 
 
 %% Define Grid and build operators
