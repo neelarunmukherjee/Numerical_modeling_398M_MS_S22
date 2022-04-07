@@ -38,7 +38,8 @@ Grid.dx = (Grid.xmax-Grid.xmin)/Grid.Nx;        % dx of the gridblocks
 
 %% Number for fluxes
 Grid.Nfx = Grid.Nx + 1;
-
+Grid.N = Grid.Nx; %1D
+Grid.Nf = Grid.Nfx; %1D 
 % Set up mesh
 % cell centers 'xc' and cell faces 'xf'   
 A = linspace(Grid.xmin+Grid.dx/2, Grid.xmax-Grid.dx/2, Grid.Nx);
@@ -59,3 +60,6 @@ Grid.dof_xmax = Grid.Nx;
 % Boundary faces
 Grid.dof_f_xmin = 1;
 Grid.dof_f_xmax = Grid.Nfx;
+
+Grid.A = [ones(Grid.Nfx,1);Grid.dx];
+Grid.V  = [ones(Grid.N,1)*Grid.dx];
