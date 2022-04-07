@@ -25,17 +25,17 @@ function [hD,pD,qD] = solve_Helmholtz(D,G,I,M,phi,n,m,Grid,B,N,fn,BC,Zc,Gamma) %
 Phi_n = phi.^n;
 phi_n =comp_mean(Phi_n,M,1,Grid,1);
 Phi_m = phi.^m;
-phi_m =spdiags(Phi_m,0,Grid.Nx,Grid.Nx);
+phi_m =spdiags(Phi_m,0,Grid.N,Grid.N);
 
 %% Solve mod. Helmholtz equations 
 
 L  = -D*phi_n*G + phi_m;      % system matrix
-fs = phi_m*Zc + Gamma;     % r.h.s.
+fs = phi_m*Zc(:) + Gamma;     % r.h.s.
 
 %% Solve boundary value problem
 hD = solve_lbvp(L,fs+fn,B,BC.g,N);
 flux = @(h) -phi_n*G*h;
 res = @(h,cell) L(cell,:)*h - fs(cell);
 qD = comp_flux_gen(flux,res,hD,Grid,BC);
-pD = hD-Zc;
+pD = hD-Zc(:);
 end

@@ -45,7 +45,7 @@ if ~isfield(Grid,'ymax'); Grid.ymax = 1; end
 if ~isfield(Grid,'Ny');   Grid.Ny   = 1; end
 Grid.Ly =  Grid.ymax-Grid.ymin      % domain length in y
 Grid.dy =   Grid.Ly/Grid.Ny      % dy of the gridblocks
-
+Grid.dz = 1;
 %% Number for fluxes
 Grid.Nfx = (Grid.Nx+1)*Grid.Ny;
 Grid.Nfy = (Grid.Ny+1)*Grid.Nx;
@@ -76,3 +76,7 @@ Grid.dof_f_xmax = [Grid.Nfx-Grid.Ny+1:Grid.Nfx]';
 % note: y-fluxes are shifted by Nfx
 Grid.dof_f_ymin = Grid.Nfx+[1:Grid.Ny+1:Grid.Nfy-Grid.Ny]';
 Grid.dof_f_ymax = Grid.Nfx+[Grid.Ny+1:Grid.Ny+1:Grid.Nfy]';
+
+Grid.A = [ones(Grid.Nfx,1)*Grid.dy*Grid.dz;...
+    ones(Grid.Nfy,1)*Grid.dx*Grid.dz];
+Grid.V  = [ones(Grid.N,1)*Grid.dx*Grid.dy*Grid.dz];

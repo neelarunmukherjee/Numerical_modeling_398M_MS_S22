@@ -8,7 +8,7 @@ Param.phi_melt   = 2e-1;       % Porosity of near surface melt
 Param.phi_shell   = 2e-1;      % Porosity of near surface melt
 Param.m = 1;                   % compaction viscosity exponent [-]
 Param.n = 2;                   % compaction viscosity exponent [-]
-Param.tDmax = 4;               % Dimensionless simulation time [-]
+Param.tDmax = 2;               % Dimensionless simulation time [-]
 Param.theta = .5;              % Crank-Nicholson (implicit)
 
 

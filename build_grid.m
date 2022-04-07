@@ -38,8 +38,7 @@ Grid.dx = (Grid.xmax-Grid.xmin)/Grid.Nx;        % dx of the gridblocks
 
 %% Number for fluxes
 Grid.Nfx = Grid.Nx + 1;
-Grid.N=Grid.Nx;
-Grid.Nf = Grid.Nfx;
+
 % Set up mesh
 % cell centers 'xc' and cell faces 'xf'   
 A = linspace(Grid.xmin+Grid.dx/2, Grid.xmax-Grid.dx/2, Grid.Nx);
@@ -50,8 +49,8 @@ Grid.xf = B.'; % x-coords of gridblock faces
 
 %% Set up dof vectors
 
-Grid.dof = [1:Grid.N]';    % cell centered degree of freedom/gridblock number
-Grid.dof_f =[1:Grid.Nf]';          % face degree of freedom/face number
+Grid.dof = linspace(1,Grid.Nx,Grid.Nx);      % cell centered degree of freedom/gridblock number
+Grid.dof_f =linspace(1,Grid.Nfx,Grid.Nfx);            % face degree of freedom/face number
 
 %% Boundary dof's
 % Boundary cells
@@ -60,7 +59,3 @@ Grid.dof_xmax = Grid.Nx;
 % Boundary faces
 Grid.dof_f_xmin = 1;
 Grid.dof_f_xmax = Grid.Nfx;
-
-%% 
-Grid.A = ones(Grid.Nfx,1)*Grid.dx;
-Grid.V  = ones(Grid.N,1)*Grid.dx;

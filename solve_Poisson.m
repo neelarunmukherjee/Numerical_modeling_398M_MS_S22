@@ -20,7 +20,7 @@ function [uD,vD] = solve_Poisson(D,G,I,phi,m,pD,Grid,B,N,fn,BC) % class
 % vD = Nf by 1 column vector of dimensionless solid velocities
 
 Phi_m = phi.^m;
-phi_m =spdiags(Phi_m,0,Grid.Nx,Grid.Nx);
+phi_m =spdiags(Phi_m,0,Grid.N,Grid.N);
 
 L  =  -D*G;       % system matrix
 fs = phi_m*pD;   % r.h.s.

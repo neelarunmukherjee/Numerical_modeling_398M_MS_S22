@@ -17,7 +17,7 @@ function [A] = flux_upwind2(q,Grid) % repo
 % >> q = ones(Grid.Nf,1);
 % >> [A] = flux_upwind(q,Grid);
 
-Nx = Grid.Nx; Ny = Grid.Ny; Nz = Grid.Nz; N = Grid.N;
+Nx = Grid.Nx; Ny = Grid.Ny; N = Grid.N;
 Nfx = Grid.Nfx;  % # of x faces
 Nfy = Grid.Nfy;  % # of y faces
 Nf  = Grid.Nf;   % # faces
