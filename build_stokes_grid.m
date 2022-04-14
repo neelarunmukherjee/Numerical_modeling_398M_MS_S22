@@ -6,7 +6,7 @@ Gridp = build_grid(Gridp);
 
 %% Build x-velovity grid
 Gridx.xmin = Gridp.xmin - Gridp.dx/2; Gridx.xmax = Gridp.xmax+Gridp.dx/2; Gridx.Nx = Gridp.Nx + 1;
-Gridx.ymin = Gridp.ymin; Gridx.ymax = Gridp.ymin; Gridx.Ny = Gridp.Ny;
+Gridx.ymin = Gridp.ymin; Gridx.ymax = Gridp.ymax; Gridx.Ny = Gridp.Ny;
 Gridx = build_grid(Gridx);
 
 %% Build y-velocity grid
