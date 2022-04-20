@@ -3,9 +3,9 @@ function [D,Edot,Dp,Gp,Z,I]=build_stokes_ops(Grid) % repo
 % date: 4 Oct. 2019
 
 %% Build operators for each variable
-[Dp,Gp,~,Ip,~] = build_ops(Grid.p);
-[Dx,Gx,~,Ix,~] = build_ops(Grid.x);
-[Dy,Gy,~,Iy,~] = build_ops(Grid.y);
+[Dp,Gp,~,Ip,~] = build_ops2(Grid.p);
+[Dx,Gx,~,Ix,~] = build_ops2(Grid.x);
+[Dy,Gy,~,Iy,~] = build_ops2(Grid.y);
 
 %% Extract x and y components of the velocity operators
 Gxx = Gx(1:Grid.x.Nfx,:); Gxy = Gx(Grid.x.Nfx+1:Grid.x.Nf,:);
